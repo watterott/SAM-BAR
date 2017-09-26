@@ -35,29 +35,8 @@
 // Pins
 // ----
 
-// J1...J7
-#define RCJ1   (15u) // PA02: D15 / A0
-#define RCJ2   (25u) // PA03: D25 / A7/AREF
-#define RCJ3   (18u) // PA04: D18 / A3
-#define RCJ4   (19u) // PA05: D19 / A4
-#define RCJ5   (20u) // PA06: D20 / A5
-#define RCJ6   (21u) // PA07: D21 / A6
-#define RCJ7   (16u) // PB02: D16 / A1
-// M1...M4
-#define RCM1A   (7u) // PA21: D7
-#define RCM1B   (6u) // PA20: D6
-#define RCM2A   (1u) // PA23: D1
-#define RCM2B   (0u) // PA22: D0
-#define RCM3A   (3u) // PA11: D3
-#define RCM3B   (2u) // PA10: D2
-#define RCM4A   (5u) // PB11: D5
-#define RCM4B   (4u) // PB10: D4
-#define RCVBB  (17u) // PB3: D17 / A2
-// S1
-#define RCS1   (37u) // PA31 / SWDIO
-
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (26u) // 26
+#define PINS_COUNT           (34u) // 34
 #define NUM_DIGITAL_PINS     (22u) // 22
 #define NUM_ANALOG_INPUTS    (7u)  // 7
 #define NUM_ANALOG_OUTPUTS   (1u)  // 1
@@ -84,7 +63,7 @@
 
 // LEDs
 // ----
-#define PIN_LED     (36u) // PA30 / SWCLK (Dev-Edition: PA31 / SWDIO)
+#define PIN_LED     (30u) //D30/PA27 + D31/PA28
 #define LED_BUILTIN PIN_LED
 
 // Analog pins
@@ -112,7 +91,7 @@ static const uint8_t DAC0 = PIN_DAC0;
 
 // SPI Interfaces
 // --------------
-#define SPI_INTERFACES_COUNT 2
+#define SPI_INTERFACES_COUNT 1
 
 // SPI
 #define PIN_SPI_MISO  (10u)
@@ -127,22 +106,9 @@ static const uint8_t MOSI = PIN_SPI_MOSI;
 static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SCK  = PIN_SPI_SCK;
 
-// SPI1: Connected to WINC1501B
-#define PIN_SPI1_MISO (29u)
-#define PIN_SPI1_MOSI (26u)
-#define PIN_SPI1_SCK  (27u)
-#define PIN_SPI1_SS   (28u)
-#define PERIPH_SPI1   sercom2
-#define PAD_SPI1_TX   SPI_PAD_0_SCK_1
-#define PAD_SPI1_RX   SERCOM_RX_PAD_3
-static const uint8_t SS1   = PIN_SPI1_SS;
-static const uint8_t MOSI1 = PIN_SPI1_MOSI;
-static const uint8_t MISO1 = PIN_SPI1_MISO;
-static const uint8_t SCK1  = PIN_SPI1_SCK;
-
 // Wire Interfaces
 // ---------------
-#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 2
 
 // Wire
 #define PIN_WIRE_SDA        (11u)
@@ -152,6 +118,13 @@ static const uint8_t SCK1  = PIN_SPI1_SCK;
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
 
+#define PIN_WIRE1_SDA       (26u)
+#define PIN_WIRE1_SCL       (27u)
+#define PERIPH_WIRE1        sercom2
+#define WIRE1_IT_HANDLER    SERCOM2_Handler
+static const uint8_t SDA1 = PIN_WIRE1_SDA;
+static const uint8_t SCL1 = PIN_WIRE1_SCL;
+
 // USB
 // ---
 #define PIN_USB_DM          (22u)
@@ -160,11 +133,11 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 
 // Needed for WINC1501B (WiFi101) library
 // --------------------------------------
-#define WINC1501_RESET_PIN   (30u)
-#define WINC1501_CHIP_EN_PIN (31u)
-#define WINC1501_INTN_PIN    (33u)
-#define WINC1501_SPI         SPI1
-#define WINC1501_SPI_CS_PIN  PIN_SPI1_SS
+//#define WINC1501_RESET_PIN   (-1u)
+//#define WINC1501_CHIP_EN_PIN (-1u)
+#define WINC1501_INTN_PIN    (7u)
+#define WINC1501_SPI         SPI
+#define WINC1501_SPI_CS_PIN  (24u)
 
 
 // Serial ports

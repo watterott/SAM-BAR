@@ -167,3 +167,33 @@ robotics.build.vid=0x1D50
 robotics.build.pid=0x6111
 robotics.build.usb_product="Eitech Robotics"
 robotics.build.usb_manufacturer="Eitech"
+
+
+# SenseBox D21
+sb.name=SenseBox D21
+sb.vid.0=0x1D50
+sb.pid.0=0x6112
+sb.vid.1=0x1D50
+sb.pid.1=0x6113
+sb.bootloader.tool=openocd
+sb.bootloader.file=sensebox_sambar.bin
+sb.bootloader.size=0x4000
+sb.bootloader.NVMCTRL_BOOTPROT=0x01
+sb.upload.tool=bossac
+sb.upload.protocol=sam-ba
+sb.upload.maximum_size=262144
+sb.upload.use_1200bps_touch=true
+sb.upload.wait_for_upload_port=true
+sb.upload.native_usb=true
+sb.build.mcu=cortex-m0plus
+sb.build.f_cpu=48000000L
+sb.build.board=SAMD_MKR1000
+sb.build.variant=sensebox
+sb.build.core=arduino:arduino
+sb.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+sb.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+sb.build.openocdscript=openocd_scripts/arduino_zero.cfg
+sb.build.vid=0x1D50
+sb.build.pid=0x6113
+sb.build.usb_product="SenseBox D21"
+sb.build.usb_manufacturer="SenseBox"
