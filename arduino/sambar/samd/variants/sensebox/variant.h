@@ -139,6 +139,9 @@ static const uint8_t SCL1 = PIN_WIRE1_SCL;
 #define WINC1501_SPI         SPI
 #define WINC1501_SPI_CS_PIN  (24u)
 
+// Needed for SD library
+// ---------------------
+#define SDCARD_SS_PIN (28u)
 
 // Serial ports
 // ------------
