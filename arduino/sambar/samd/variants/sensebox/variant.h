@@ -93,7 +93,7 @@ static const uint8_t DAC0 = PIN_DAC0;
 // --------------
 #define SPI_INTERFACES_COUNT 1
 
-// SPI
+// SPI SERCOM1
 #define PIN_SPI_MISO  (10u)
 #define PIN_SPI_MOSI  (8u)
 #define PIN_SPI_SCK   (9u)
@@ -113,15 +113,15 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 // Wire
 #define PIN_WIRE_SDA        (11u)
 #define PIN_WIRE_SCL        (12u)
-#define PERIPH_WIRE         sercom0
-#define WIRE_IT_HANDLER     SERCOM0_Handler
+#define PERIPH_WIRE         sercom2 //sercom0 or sercom2
+#define WIRE_IT_HANDLER     SERCOM2_Handler
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
 
 #define PIN_WIRE1_SDA       (26u)
 #define PIN_WIRE1_SCL       (27u)
-#define PERIPH_WIRE1        sercom2
-#define WIRE1_IT_HANDLER    SERCOM2_Handler
+#define PERIPH_WIRE1        sercom4 //sercom2 or sercom4
+#define WIRE1_IT_HANDLER    SERCOM4_Handler
 static const uint8_t SDA1 = PIN_WIRE1_SDA;
 static const uint8_t SCL1 = PIN_WIRE1_SCL;
 
@@ -133,8 +133,8 @@ static const uint8_t SCL1 = PIN_WIRE1_SCL;
 
 // Needed for WINC1501B (WiFi101) library
 // --------------------------------------
-//#define WINC1501_RESET_PIN   (-1u)
-//#define WINC1501_CHIP_EN_PIN (-1u)
+#define WINC1501_RESET_PIN   (-1u)
+#define WINC1501_CHIP_EN_PIN (-1u)
 #define WINC1501_INTN_PIN    (7u)
 #define WINC1501_SPI         SPI
 #define WINC1501_SPI_CS_PIN  (24u)
@@ -157,33 +157,35 @@ extern SERCOM sercom3;
 extern SERCOM sercom4;
 extern SERCOM sercom5;
 
-// Serial1 XBEE1
+// SERCOM5 Serial1 XBEE1
 extern Uart Serial1;
 #define PIN_SERIAL1_RX (13u)
 #define PIN_SERIAL1_TX (14u)
 #define PAD_SERIAL1_TX (UART_TX_PAD_2)
 #define PAD_SERIAL1_RX (SERCOM_RX_PAD_3)
 
-// Serial2 XBEE2
+// SERCOM0 Serial2 XBEE2
 extern Uart Serial2;
 #define PIN_SERIAL2_RX (2u)
 #define PIN_SERIAL2_TX (3u)
 #define PAD_SERIAL2_TX (UART_TX_PAD_2)
 #define PAD_SERIAL2_RX (SERCOM_RX_PAD_3)
 
-// Serial3 UART RXTX1
+// SERCOM3 Serial3 UART RXTX1
 extern Uart Serial3;
 #define PIN_SERIAL3_RX (1u)
 #define PIN_SERIAL3_TX (0u)
 #define PAD_SERIAL3_TX (UART_TX_PAD_0)
 #define PAD_SERIAL3_RX (SERCOM_RX_PAD_1)
 
-// Serial4 UART RXTX2
+// SERCOM4 Serial4 UART RXTX2
+/*
 extern Uart Serial4;
 #define PIN_SERIAL4_RX (33u)
 #define PIN_SERIAL4_TX (32u)
 #define PAD_SERIAL4_TX (UART_TX_PAD_0)
 #define PAD_SERIAL4_RX (SERCOM_RX_PAD_1)
+*/
 
 #endif // __cplusplus
 
