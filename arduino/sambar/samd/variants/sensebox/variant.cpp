@@ -184,7 +184,7 @@ void SERCOM5_Handler()
 // Serial2
 Uart Serial2(&sercom0, PIN_SERIAL2_RX, PIN_SERIAL2_TX, PAD_SERIAL2_RX, PAD_SERIAL2_TX);
 
-void SERCOM2_Handler()
+void SERCOM0_Handler()
 {
   Serial2.IrqHandler();
 }
