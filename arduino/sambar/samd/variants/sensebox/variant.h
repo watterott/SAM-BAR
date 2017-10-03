@@ -157,12 +157,34 @@ extern SERCOM sercom3;
 extern SERCOM sercom4;
 extern SERCOM sercom5;
 
-// Serial1
+// Serial1 XBEE1
 extern Uart Serial1;
 #define PIN_SERIAL1_RX (13u)
 #define PIN_SERIAL1_TX (14u)
 #define PAD_SERIAL1_TX (UART_TX_PAD_2)
 #define PAD_SERIAL1_RX (SERCOM_RX_PAD_3)
+
+// Serial2 XBEE2
+extern Uart Serial2;
+#define PIN_SERIAL2_RX (2u)
+#define PIN_SERIAL2_TX (3u)
+#define PAD_SERIAL2_TX (UART_TX_PAD_2)
+#define PAD_SERIAL2_RX (SERCOM_RX_PAD_3)
+
+// Serial3 UART RXTX1
+extern Uart Serial3;
+#define PIN_SERIAL3_RX (1u)
+#define PIN_SERIAL3_TX (0u)
+#define PAD_SERIAL3_TX (UART_TX_PAD_0)
+#define PAD_SERIAL3_RX (SERCOM_RX_PAD_1)
+
+// Serial4 UART RXTX2
+extern Uart Serial4;
+#define PIN_SERIAL4_RX (33u)
+#define PIN_SERIAL4_TX (32u)
+#define PAD_SERIAL4_TX (UART_TX_PAD_0)
+#define PAD_SERIAL4_RX (SERCOM_RX_PAD_1)
+
 #endif // __cplusplus
 
 // These serial port names are intended to allow libraries and architecture-neutral
