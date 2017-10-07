@@ -129,19 +129,20 @@ static const uint8_t SCL1 = PIN_WIRE1_SCL;
 // ---
 #define PIN_USB_DM          (22u)
 #define PIN_USB_DP          (23u)
-#define PIN_USB_HOST_ENABLE (-1)
+#define PIN_USB_HOST_ENABLE (-1u)
 
 // Needed for WINC1501B (WiFi101) library
 // --------------------------------------
-#define WINC1501_RESET_PIN   (-1u)
-#define WINC1501_CHIP_EN_PIN (-1u)
-#define WINC1501_INTN_PIN    (7u)
+#define WINC1501_RESET_PIN   (-1)
+#define WINC1501_CHIP_EN_PIN (-1)
+#define WINC1501_INTN_PIN    (7)
 #define WINC1501_SPI         SPI
-#define WINC1501_SPI_CS_PIN  (24u)
+#define WINC1501_SPI_CS_PIN  (24)
+//#define NO_HW_CHIP_EN        (1) // No Chip Enable Pin
 
 // Needed for SD library
 // ---------------------
-#define SDCARD_SS_PIN (28u)
+#define SDCARD_SS_PIN (28)
 
 // Serial ports
 // ------------
