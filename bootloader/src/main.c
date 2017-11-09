@@ -105,7 +105,7 @@ static void check_start_application(void)
 	}
 #endif
 
-#ifdef LED_BOOT_OFF
+#ifdef LED_BOOT
 	LED_BOOT_OFF();
 #endif
 
@@ -123,10 +123,14 @@ static void check_start_application(void)
  */
 int main(void)
 {
-#ifdef LED_BOOT_INIT
+#ifndef DEBUG
+	PORT->Group[0].PINCFG[PIN_PA30].bit.PMUXEN = 0; //PA30/SWCLK
+	PORT->Group[0].PINCFG[PIN_PA31].bit.PMUXEN = 0; //PA31/SWDIO
+#endif
+#ifdef LED_BOOT
 	LED_BOOT_INIT(); // initialize LED
 #endif
-#ifdef LED_BOOT_ON
+#ifdef LED_BOOT
 	LED_BOOT_ON(); // LED on
 #endif
 
@@ -163,7 +167,7 @@ void main_sof_action(void)
 	if ((!main_b_msc_enable) || (!main_b_cdc_enable)) // MSC or CDC enabled?
 		return;
 
-#ifdef LED_BOOT_ON
+#ifdef LED_BOOT
 	/* uint16_t framenumber = udd_get_frame_number();
 	if ((framenumber % 1000) == 0) 
 		LED_BOOT_OFF();
