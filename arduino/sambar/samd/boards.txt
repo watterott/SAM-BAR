@@ -169,7 +169,7 @@ robotics.build.usb_product="Eitech Robotics"
 robotics.build.usb_manufacturer="Eitech"
 
 
-# SenseBox D21
+# SenseBox
 sb.name=SenseBox D21
 sb.vid.0=0x1D50
 sb.pid.0=0x6112
@@ -195,5 +195,35 @@ sb.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
 sb.build.openocdscript=openocd_scripts/arduino_zero.cfg
 sb.build.vid=0x1D50
 sb.build.pid=0x6113
-sb.build.usb_product="SenseBox D21"
+sb.build.usb_product="SenseBox"
 sb.build.usb_manufacturer="SenseBox"
+
+
+# Dadamachines Automat
+automat.name=dadamachines automat
+automat.vid.0=0x16D0
+automat.pid.0=0x0CDA
+automat.vid.1=0x16D0
+automat.pid.1=0x0CDB
+automat.bootloader.tool=openocd
+automat.bootloader.file=automat_sambar.bin
+automat.bootloader.size=0x4000
+automat.bootloader.NVMCTRL_BOOTPROT=0x01
+automat.upload.tool=bossac
+automat.upload.protocol=sam-ba
+automat.upload.maximum_size=262144
+automat.upload.use_1200bps_touch=true
+automat.upload.wait_for_upload_port=true
+automat.upload.native_usb=true
+automat.build.mcu=cortex-m0plus
+automat.build.f_cpu=48000000L
+automat.build.board=SAMD_ZERO
+automat.build.variant=automat
+automat.build.core=arduino:arduino
+automat.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+automat.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+automat.build.openocdscript=openocd_scripts/arduino_zero.cfg
+automat.build.vid=0x16D0
+automat.build.pid=0x0CDB
+automat.build.usb_product="dadamachines automat"
+automat.build.usb_manufacturer="dadamachines"
