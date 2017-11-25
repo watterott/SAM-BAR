@@ -50,7 +50,62 @@ static volatile bool main_b_cdc_enable = false;
 
 
 /**
- * \brief Check the application startup condition
+ * \brief Check and set boot protection fuse bits.
+ *
+ */
+static void check_boot_protection(void)
+{
+	uint32_t bp, bp_new, f0, f1;
+
+	#define exec_nvm_cmd(cmd)                                         \
+			do{                                                       \
+				NVMCTRL->STATUS.reg |= NVMCTRL_STATUS_MASK;           \
+				NVMCTRL->ADDR.reg    = (uint32_t)NVMCTRL_USER / 2;    \
+				NVMCTRL->CTRLA.reg   = NVMCTRL_CTRLA_CMDEX_KEY | cmd; \
+				while(NVMCTRL->INTFLAG.bit.READY == 0);               \
+			}while(0)
+
+	while(NVMCTRL->INTFLAG.bit.READY == 0);
+
+	f0 = *((uint32_t *)NVMCTRL_AUX0_ADDRESS);
+	f1 = *(((uint32_t *)NVMCTRL_AUX0_ADDRESS) + 1);
+
+	bp = (f0 & NVMCTRL_FUSES_BOOTPROT_Msk) >> NVMCTRL_FUSES_BOOTPROT_Pos; // get current bits
+
+	#if   APP_START_ADDRESS == 0x1000
+		bp_new = 3; // 4k
+	#elif APP_START_ADDRESS == 0x2000
+		bp_new = 2; // 8k
+	#elif APP_START_ADDRESS == 0x4000
+		bp_new = 1; // 16k
+	#elif APP_START_ADDRESS == 0x8000
+		bp_new = 0; // 32k
+	#else
+		bp_new = 7; // no protection
+	#endif
+
+	if(bp == bp_new) // bits already set
+	{
+		return;
+	}
+
+	f0 = (f0 & ~NVMCTRL_FUSES_BOOTPROT_Msk) | (bp_new << NVMCTRL_FUSES_BOOTPROT_Pos);
+
+	NVMCTRL->CTRLB.reg = NVMCTRL->CTRLB.reg | NVMCTRL_CTRLB_CACHEDIS | NVMCTRL_CTRLB_MANW; // "CACHEDIS" Cache Disable | "MANW" Manual Write
+
+	exec_nvm_cmd(NVMCTRL_CTRLA_CMD_EAR); // run "EAR" Erase Auxiliary Row
+	exec_nvm_cmd(NVMCTRL_CTRLA_CMD_PBC); // run "PBC" Page Buffer Clear
+
+	*((uint32_t *)NVMCTRL_AUX0_ADDRESS) = f0;
+	*(((uint32_t *)NVMCTRL_AUX0_ADDRESS) + 1) = f1;
+
+	exec_nvm_cmd(NVMCTRL_CTRLA_CMD_WAP); // run "WAP" Write Auxiliary Page
+
+	NVIC_SystemReset();
+}
+
+/**
+ * \brief Check the application startup condition.
  *
  */
 static void check_start_application(void)
@@ -61,7 +116,11 @@ static void check_start_application(void)
 	 * If it is 0xFFFFFFFF then the application section is empty.
 	 */
 	if (*((uint32_t *) APP_START_ADDRESS) == 0xFFFFFFFF)
-  {
+	{
+		#ifndef DEBUG
+			// check boot protection fuses
+			check_boot_protection();
+		#endif
 		return; // stay in bootloader
 	}
 
@@ -87,6 +146,7 @@ static void check_start_application(void)
 		{
 			/* Second tap, stay in bootloader */
 			BOOT_DOUBLE_TAP_DATA = 0;
+
 			return;
 		}
 
@@ -119,6 +179,7 @@ static void check_start_application(void)
 	asm("bx %0"::"r"(*(unsigned *)(APP_START_ADDRESS + 4)));	
 }
 
+
 /*! \brief Main function.
  */
 int main(void)
@@ -140,8 +201,9 @@ int main(void)
 	irq_initialize_vectors();
 	cpu_irq_enable();
 
+	// init system
 	system_init();
-		
+
 	// start USB stack to authorize VBus monitoring
 	udc_start();
 	
