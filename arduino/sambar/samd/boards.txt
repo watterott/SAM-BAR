@@ -227,3 +227,4 @@ automat.build.vid=0x16D0
 automat.build.pid=0x0CDB
 automat.build.usb_product="dadamachines automat"
 automat.build.usb_manufacturer="dadamachines"
+automat.build.usb_power=20

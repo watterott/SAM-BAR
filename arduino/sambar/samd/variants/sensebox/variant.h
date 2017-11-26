@@ -93,12 +93,12 @@ static const uint8_t DAC0 = PIN_DAC0;
 // --------------
 #define SPI_INTERFACES_COUNT 1
 
-// SPI SERCOM1
+// SPI
 #define PIN_SPI_MISO  (10u)
 #define PIN_SPI_MOSI  (8u)
 #define PIN_SPI_SCK   (9u)
 #define PIN_SPI_SS    (24u)
-#define PERIPH_SPI    sercom1
+#define PERIPH_SPI    sercom1 //sercom1 or sercom3
 #define PAD_SPI_TX    SPI_PAD_0_SCK_1
 #define PAD_SPI_RX    SERCOM_RX_PAD_3
 static const uint8_t SS   = PIN_SPI_SS;   // SPI Slave SS not used. Set here only for reference.
@@ -165,14 +165,14 @@ extern Uart Serial1;
 #define PAD_SERIAL1_TX (UART_TX_PAD_2)
 #define PAD_SERIAL1_RX (SERCOM_RX_PAD_3)
 
-// SERCOM0 Serial2 XBEE2
+// SERCOM0 oder SERCOM2 Serial2 XBEE2
 extern Uart Serial2;
 #define PIN_SERIAL2_RX (2u)
 #define PIN_SERIAL2_TX (3u)
 #define PAD_SERIAL2_TX (UART_TX_PAD_2)
 #define PAD_SERIAL2_RX (SERCOM_RX_PAD_3)
 
-// SERCOM3 Serial3 UART RXTX1
+// SERCOM3 oder SERCOM5 Serial3 UART RXTX1
 extern Uart Serial3;
 #define PIN_SERIAL3_RX (1u)
 #define PIN_SERIAL3_TX (0u)
