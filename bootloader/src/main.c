@@ -185,8 +185,10 @@ static void check_start_application(void)
 int main(void)
 {
 #ifndef DEBUG
-	PORT->Group[0].PINCFG[PIN_PA30].bit.PMUXEN = 0; //PA30/SWCLK
-	PORT->Group[0].PINCFG[PIN_PA31].bit.PMUXEN = 0; //PA31/SWDIO
+	#if defined(BOARD_EITECH_ROBOTICS) || defined(BOARD_WATTUINO_RC)
+		PORT->Group[0].PINCFG[PIN_PA30].bit.PMUXEN = 0; //PA30/SWCLK
+		PORT->Group[0].PINCFG[PIN_PA31].bit.PMUXEN = 0; //PA31/SWDIO
+	#endif
 #endif
 #ifdef LED_BOOT
 	LED_BOOT_INIT(); // initialize LED

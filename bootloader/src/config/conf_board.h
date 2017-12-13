@@ -91,7 +91,7 @@
 #define USB_DEVICE_VENDOR_ID         0x1D50 // OpenMoko = 0x1D50
 #define USB_DEVICE_PRODUCT_ID        0x6112 // SAM-BAR Bootloader = 0x6112
 #define USB_DEVICE_MANUFACTURE_NAME  "SenseBox"
-#define USB_DEVICE_PRODUCT_NAME      "SenseBox"
+#define USB_DEVICE_PRODUCT_NAME      "SenseBox MCU"
 #define LED_BOOT                     PORT_PA27  // PA27 and PA28
 #define LED_BOOT_GROUP               0          // Port A
 
