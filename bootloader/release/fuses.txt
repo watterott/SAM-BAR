@@ -1,3 +1,0 @@
-Set Protection to 16KB Bootloader Size
-
-NVMCTRL_BOOTPROT=0x01

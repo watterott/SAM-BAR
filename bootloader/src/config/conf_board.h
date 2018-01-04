@@ -15,7 +15,7 @@
 //#define BOARD_WATTUINO_RC
 //#define BOARD_EITECH_ROBOTICS
 //#define BOARD_DADAMACHINES_AUTOMAT
-//#define BOARD_SENSEBOX
+//#define BOARD_SENSEBOX_MCU
 
 
 #if defined BOARD_ARDUINO_MKR1000      /* Arduino MKR1000 */
@@ -86,10 +86,10 @@
 #define LED_BOOT_GROUP               0          // Port A
 
 
-#elif defined BOARD_SENSEBOX           /* SenseBox */
+#elif defined BOARD_SENSEBOX_MCU       /* SenseBox MCU*/
 
-#define USB_DEVICE_VENDOR_ID         0x1D50 // OpenMoko = 0x1D50
-#define USB_DEVICE_PRODUCT_ID        0x6112 // SAM-BAR Bootloader = 0x6112
+#define USB_DEVICE_VENDOR_ID         0x04D8 // Microchip = 0x04D8
+#define USB_DEVICE_PRODUCT_ID        0xEF66 // SenseBox MCU Bootloader = 0xEF66
 #define USB_DEVICE_MANUFACTURE_NAME  "SenseBox"
 #define USB_DEVICE_PRODUCT_NAME      "SenseBox MCU"
 #define LED_BOOT                     PORT_PA27  // PA27 and PA28
