@@ -9,92 +9,20 @@
 
       "platforms": [
         {
-          "name": "SAMD (ARM Cortex-M0+) Boards with SAM-BAR",
-          "architecture": "samd",
-          "version": "1.0.4",
-          "category": "contributed",
-          "help": {"online": "https://github.com/watterott/SAM-BAR"},
-          "url": "https://github.com/watterott/SAM-BAR/raw/master/arduino/sambar.zip",
-          "archiveFileName": "sambar-1.0.4.zip",
-          "size": "187497",
-          "boards": [
-            {"name": "Arduino MKR1000"},
-            {"name": "Arduino MKRZero"},
-            {"name": "Arduino Zero"},
-            {"name": "Eitech Robotics"},
-            {"name": "Wattuino RC"},
-            {"name": "SenseBox"}
-          ]
-        },
-        {
-          "name": "SAMD (ARM Cortex-M0+) Boards with SAM-BAR",
-          "architecture": "samd",
-          "version": "1.0.3",
-          "category": "contributed",
-          "help": {"online": "https://github.com/watterott/SAM-BAR"},
-          "url": "https://github.com/watterott/SAM-BAR/raw/71802b3f451887565e8ba0ef0c1344fad84940af/arduino/sambar.zip",
-          "archiveFileName": "sambar-1.0.3.zip",
-          "size": "168443",
-          "boards": [
-            {"name": "Arduino MKR1000"},
-            {"name": "Arduino MKRZero"},
-            {"name": "Arduino Zero"},
-            {"name": "Eitech Robotics"},
-            {"name": "Wattuino RC"},
-            {"name": "SenseBox"}
-          ]
-        },
-        {
-          "name": "SAMD (ARM Cortex-M0+) Boards with SAM-BAR",
-          "architecture": "samd",
-          "version": "1.0.2",
-          "category": "contributed",
-          "help": {"online": "https://github.com/watterott/SAM-BAR"},
-          "url": "https://github.com/watterott/SAM-BAR/raw/e1f9918548bf953658498f2bfebd457109e79ef5/arduino/sambar.zip",
-          "archiveFileName": "sambar-1.0.2.zip",
-          "size": "168347",
-          "boards": [
-            {"name": "Arduino MKR1000"},
-            {"name": "Arduino MKRZero"},
-            {"name": "Arduino Zero"},
-            {"name": "Eitech Robotics"},
-            {"name": "Wattuino RC"},
-            {"name": "SenseBox"}
-          ]
-        },
-        {
-          "name": "SAMD (ARM Cortex-M0+) Boards with SAM-BAR",
-          "architecture": "samd",
-          "version": "1.0.1",
-          "category": "contributed",
-          "help": {"online": "https://github.com/watterott/SAM-BAR"},
-          "url": "https://github.com/watterott/SAM-BAR/raw/65fc5fb118589dd1420e4879e7f33e347a411cdb/arduino/sambar.zip",
-          "archiveFileName": "sambar-1.0.1.zip",
-          "size": "168219",
-          "boards": [
-            {"name": "Arduino MKR1000"},
-            {"name": "Arduino MKRZero"},
-            {"name": "Arduino Zero"},
-            {"name": "Eitech Robotics"},
-            {"name": "Wattuino RC"},
-            {"name": "SenseBox"}
-          ]
-        },
-        {
-          "name": "SAMD (ARM Cortex-M0+) Boards with SAM-BAR",
+          "name": "SAMD Boards with SAM-BAR (dependency: Arduino SAMD Boards)",
           "architecture": "samd",
           "version": "1.0.0",
           "category": "contributed",
           "help": {"online": "https://github.com/watterott/SAM-BAR"},
-          "url": "https://github.com/watterott/SAM-BAR/raw/2089d7c6af892b9b49700547b135cd85809c9758/arduino/sambar.zip",
+          "url": "https://github.com/watterott/SAM-BAR/raw/master/arduino/sambar.zip",
           "archiveFileName": "sambar-1.0.0.zip",
-          "size": "143640",
+          "size": "144136",
           "boards": [
             {"name": "Arduino MKR1000"},
             {"name": "Arduino MKRZero"},
             {"name": "Arduino Zero"},
             {"name": "Eitech Robotics"},
-            {"name": "Wattuino RC"}
+            {"name": "Wattuino RC"},
           ]
         }
       ],

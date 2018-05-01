@@ -86,12 +86,12 @@
 #define LED_BOOT_GROUP               0          // Port A
 
 
-#elif defined BOARD_SENSEBOX_MCU       /* SenseBox MCU*/
+#elif defined BOARD_SENSEBOX_MCU       /* senseBox MCU*/
 
 #define USB_DEVICE_VENDOR_ID         0x04D8 // Microchip = 0x04D8
-#define USB_DEVICE_PRODUCT_ID        0xEF66 // SenseBox MCU Bootloader = 0xEF66
-#define USB_DEVICE_MANUFACTURE_NAME  "SenseBox"
-#define USB_DEVICE_PRODUCT_NAME      "SenseBox MCU"
+#define USB_DEVICE_PRODUCT_ID        0xEF66 // senseBox MCU Bootloader = 0xEF66
+#define USB_DEVICE_MANUFACTURE_NAME  "senseBox"
+#define USB_DEVICE_PRODUCT_NAME      "senseBox MCU"
 #define LED_BOOT                     PORT_PA27  // PA27 and PA28
 #define LED_BOOT_GROUP               0          // Port A
 
